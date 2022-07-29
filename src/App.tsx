@@ -1,24 +1,11 @@
-import { useState } from "react";
 import "./App.css";
-import Card from "./components/card";
-import { Person } from "./interfaces";
 
 function App() {
-  const [people, setPeople] = useState<Person[]>([
-    {
-      name: "Andrei",
-      age: 28,
-    },
-    {
-      name: "Wanessa",
-      age: 29,
-    },
-  ]);
-
   return (
-    <div className="App">
+    <div>
       <div>
-        {people.map((elem, index) => <Card person={elem} key={index}/>)}
+        <h1>Hello World</h1>
+        <h3>Home</h3>
       </div>
     </div>
   );
