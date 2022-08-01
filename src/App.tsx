@@ -1,11 +1,11 @@
 import "./App.css";
+import Router from "./router";
 
 function App() {
   return (
     <div>
       <div>
-        <h1>Hello World</h1>
-        <h3>Home</h3>
+        <Router/>
       </div>
     </div>
   );
