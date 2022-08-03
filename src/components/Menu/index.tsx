@@ -1,6 +1,6 @@
 import * as Styled from "./styles"
 import logo from "../../assets/images/logo.png"
-import {ReactComponent as HomeIcon } from "../../assets/icons/home.svg"
+import  { HomeIcon, EditIcon, LogoutIcon } from "../../assets/icons/index"
 
 
 const Menu = () => {
@@ -8,10 +8,10 @@ const Menu = () => {
     <Styled.MenuContainer>
       <img src= {logo} alt="logo from site" />
       <div>
-        <img alt="home" />
-        <img alt="config" />
+        <HomeIcon />
+        <EditIcon />
       </div>
-      <img alt="exit" />
+      <LogoutIcon/>
     </Styled.MenuContainer>
   );
 };
