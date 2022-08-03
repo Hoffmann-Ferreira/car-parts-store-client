@@ -1,11 +1,18 @@
+import * as Styled from "./styles"
+import logo from "../../assets/images/logo.png"
+import {ReactComponent as HomeIcon } from "../../assets/icons/home.svg"
+
+
 const Menu = () => {
   return (
-    <div className="menu">
-      <img alt="logo" />
-      <img alt="home" />
-      <img alt="config" />
+    <Styled.MenuContainer>
+      <img src= {logo} alt="logo from site" />
+      <div>
+        <img alt="home" />
+        <img alt="config" />
+      </div>
       <img alt="exit" />
-    </div>
+    </Styled.MenuContainer>
   );
 };
 
