@@ -1,1 +1,8 @@
-import { StyledComponent } from "styled-components";
+import styled from "styled-components";
+
+export const HomeContainer = styled.div `
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(#36C992,#00ffee);
+`;

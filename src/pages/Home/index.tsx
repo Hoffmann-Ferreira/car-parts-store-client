@@ -1,6 +1,8 @@
+import * as Styled from "./styles"
+
 const Home = () => {
   return (
-    <div>
+    <Styled.HomeContainer>
       <div className="menu">
         <img alt="logo" />
         <img alt="home" />
@@ -71,7 +73,7 @@ const Home = () => {
           <button>continue to payment</button>
         </div>
       </aside>
-    </div>
+    </Styled.HomeContainer>
   );
 };
 
