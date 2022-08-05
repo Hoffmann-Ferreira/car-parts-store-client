@@ -27,12 +27,12 @@ const Home = () => {
             <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
             <Styled.CategoriesNavegation>Suspension</Styled.CategoriesNavegation>
           </Styled.CategoriesNavegationBar>
-          <div>
-            <h2>pick your lunch</h2>
+          <Styled.HomeContentHeader>
+            <h2>Pick your part</h2>
             <select>
               <option value="1"></option>
             </select>
-          </div>
+          </Styled.HomeContentHeader>
           <div>
             <div> Parts Card</div>
             <div> Parts Card</div>

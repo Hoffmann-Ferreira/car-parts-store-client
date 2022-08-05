@@ -104,3 +104,11 @@ export const CategoriesNavegation = styled.button<CategoriesNavegationButtonProp
       `}
 `;
 
+export const ProductsHeaderContainer =  styled.div`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  
+`;
