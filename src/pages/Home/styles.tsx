@@ -21,14 +21,40 @@ export const HomeContentHeader = styled.header`
   align-items: center;
   padding: 0 2rem;
   box-sizing: border-box;
-  div {
-    h1 {
+`;
+export const TitleContainer = styled.div`
+  h1 {
       font-family: "Bungee Shade", "cursive";
-      font-size: 2.5em;
       color: #000814;
       :hover {
         color: #fefae0;
       }
     }
+    p {
+      text-transform: capitalize;
+      font-size: 20px;
+    };
+
+`;
+
+export const SearchInputContainer = styled.div`
+  border-radius: 8px;
+  width: 10.813rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.01%;
+  background-color:#ffff;
+  svg{
+    width: 20px;
+    margin-left: 2%;
+  }
+  input{
+    width: 120px;
+    height: 4vh;
+    text-align: center;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
   }
 `;
