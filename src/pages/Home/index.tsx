@@ -22,9 +22,11 @@ const Home = () => {
           </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>
         <section>
-          <div>
-            <p>parts</p>
-          </div>
+          <Styled.CategoriesNavegationBar>
+            <Styled.CategoriesNavegation active>Break</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Suspension</Styled.CategoriesNavegation>
+          </Styled.CategoriesNavegationBar>
           <div>
             <h2>pick your lunch</h2>
             <select>
