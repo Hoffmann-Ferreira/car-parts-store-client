@@ -112,3 +112,13 @@ export const ProductsHeaderContainer =  styled.div`
   padding: 0 2rem;
   
 `;
+
+// export const SelectHomeContent = styled.select`
+//   width: 10.6rem;
+//   height: 3rem;
+//   background: #E26B6B;
+//   color: #FFFFFF;
+//   border: 1px solid #393C49;
+//   border-radius: 8px;
+//   MESA QUE NÃO VOU USAR
+// `;

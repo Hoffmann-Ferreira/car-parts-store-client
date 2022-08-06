@@ -26,12 +26,10 @@ const Home = () => {
             <Styled.CategoriesNavegation active>Break</Styled.CategoriesNavegation>
             <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
             <Styled.CategoriesNavegation>Suspension</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Favorite</Styled.CategoriesNavegation>
           </Styled.CategoriesNavegationBar>
           <Styled.HomeContentHeader>
             <h2>Pick your part</h2>
-            <select>
-              <option value="1"></option>
-            </select>
           </Styled.HomeContentHeader>
           <div>
             <div> Parts Card</div>
