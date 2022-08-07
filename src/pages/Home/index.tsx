@@ -1,5 +1,6 @@
 import { SearchIcon } from "../../assets/icons";
 import Menu from "../../components/Menu";
+import ProductList from "../../components/productslist";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
 
@@ -31,13 +32,7 @@ const Home = () => {
           <Styled.HomeContentHeader>
             <h2>Pick your part</h2>
           </Styled.HomeContentHeader>
-          <div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-          </div>
+          {/* <ProductList /> */}
         </section>
       </Styled.HomeContentContainer>
       <aside>
