@@ -1,44 +1,40 @@
-import * as Styled from "./styles"
+import { SearchIcon } from "../../assets/icons";
+import Menu from "../../components/Menu";
+import ProductList from "../../components/productslist";
+import * as Styled from "./styles";
+import { DateTime } from "luxon";
 
 const Home = () => {
+  const actualDate = DateTime.now();
+  const formateDate = `${actualDate.weekdayLong} , ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+
   return (
     <Styled.HomeContainer>
-      <div className="menu">
-        <img alt="logo" />
-        <img alt="home" />
-        <img alt="config" />
-        <img alt="exit" />
-      </div>
-      <div className="home-content">
-        <header>
-          <div>
-            <h1>Car Parts Store</h1>
-            <p>{new Date(Date.now()).toLocaleString()}</p>
-          </div>
-          <div>
-            <img alt="input" />
-            <input />
-          </div>
-        </header>
+      <Menu path="home" />
+      <Styled.HomeContentContainer>
+        <Styled.HomeContentHeader>
+          <Styled.TitleContainer>
+            <h1>Car-Parts-Store</h1>
+            <p>{formateDate}</p>
+          </Styled.TitleContainer>
+          <Styled.SearchInputContainer>
+            <SearchIcon/>
+            <input placeholder="Search for part"/>
+          </Styled.SearchInputContainer>
+        </Styled.HomeContentHeader>
         <section>
-          <div>
-            <p>parts</p>
-          </div>
-          <div>
-            <h2>pick your lunch</h2>
-            <select>
-              <option value="1"></option>
-            </select>
-          </div>
-          <div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-            <div> Parts Card</div>
-          </div>
+          <Styled.CategoriesNavegationBar>
+            <Styled.CategoriesNavegation active>Break</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Suspension</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>Favorite</Styled.CategoriesNavegation>
+          </Styled.CategoriesNavegationBar>
+          <Styled.HomeContentHeader>
+            <h2>Pick your part</h2>
+          </Styled.HomeContentHeader>
+          {/* <ProductList /> */}
         </section>
-      </div>
+      </Styled.HomeContentContainer>
       <aside>
         <header>
           <h2>Order number</h2>

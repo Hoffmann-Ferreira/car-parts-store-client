@@ -1,11 +1,33 @@
-const Menu = () => {
+import * as Styled from "./styles";
+import logo from "../../assets/images/logo.png";
+import { HomeIcon, SettingsIcon, LogoutIcon } from "../../assets/icons/index";
+
+interface MenuProps {
+  path: "home" | "settings";
+}
+
+const Menu = ({ path }: MenuProps) => {
   return (
-    <div className="menu">
-      <img alt="logo" />
-      <img alt="home" />
-      <img alt="config" />
-      <img alt="exit" />
-    </div>
+    <Styled.MenuContainer>
+      <img src={logo} alt="logo from site" />
+      <nav>
+        <Styled.MenuItem active={path === "home"}>
+          <Styled.MenuButoon active={path === "home"}>
+            <HomeIcon />
+          </Styled.MenuButoon>
+        </Styled.MenuItem>
+        <Styled.MenuItem active={path === "settings"}>
+          <Styled.MenuButoon active={path === "settings"}>
+            <SettingsIcon />
+          </Styled.MenuButoon>
+        </Styled.MenuItem>
+      </nav>
+      <Styled.MenuItem logout>
+        <Styled.MenuButoon>
+          <LogoutIcon />
+        </Styled.MenuButoon>
+      </Styled.MenuItem>
+    </Styled.MenuContainer>
   );
 };
 
