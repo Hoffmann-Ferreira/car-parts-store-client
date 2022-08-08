@@ -17,7 +17,6 @@ export const CardContainer = styled.div<CardContainerProps>`
     flex-wrap: wrap;
     text-align: center;
     padding: 0.2rem;
-    
 
     img {
       width: 9rem;
