@@ -2,7 +2,7 @@ import * as Type from "../types";
 import amortecedor4 from "../assets/images/amortecedor4.jpg";
 import amortecedor1 from "../assets/images/amortecedor1.png";
 import amortecedor2 from "../assets/images/amortecedor2.png";
-import amortecedor3 from "../assets/images/amortecedor3.png" ;
+import amortecedor3 from "../assets/images/amortecedor3.png";
 import coldair from "../assets/images/cold-air-intake.jpg";
 import correiaDentada1 from "../assets/images/correia-dentada-1.png";
 import correiaDentada3 from "../assets/images/correia-dentada-3.png";
@@ -121,14 +121,14 @@ export const mockedCategories: Type.Category[] = [
     updatedAt: new Date(),
   },
   {
-    id: "acf5ba27-5892-4286-80bc-5d891d18152f",
-    name: "Break",
+    id: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    name: "Suspension",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
-    name: "Suspension",
+    id: "acf5ba27-5892-4286-80bc-5d891d18152f",
+    name: "Break",
     createdAt: new Date(),
     updatedAt: new Date(),
   },

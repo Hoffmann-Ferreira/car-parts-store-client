@@ -7,5 +7,6 @@ export const ProductsListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  padding: 1rem;
   overflow-y: scroll;
 `;

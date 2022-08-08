@@ -4,8 +4,23 @@ import ProductList from "../../components/productslist";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
 import { mockedProducsts } from "../../mocks";
+import { mockedCategories } from "../../mocks";
+import { useState } from "react";
+import { Category, Product } from "../../types";
 
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState<Category>(
+    mockedCategories[0]
+  );
+
+  const filteredProducts: Product[] = mockedProducsts.filter(
+    (element) => element.categoryId === selectedCategory.id
+  );
+
+  const handleChangeCategory = (category: Category) => {
+    setSelectedCategory(category);
+  };
+
   const actualDate = DateTime.now();
   const formateDate = `${actualDate.weekdayLong} , ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
 
@@ -25,19 +40,21 @@ const Home = () => {
         </Styled.HomeContentHeader>
         <section>
           <Styled.CategoriesNavegationBar>
-            <Styled.CategoriesNavegation active>
-              Break
-            </Styled.CategoriesNavegation>
-            <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
-            <Styled.CategoriesNavegation>
-              Suspension
-            </Styled.CategoriesNavegation>
-            <Styled.CategoriesNavegation>Favorite</Styled.CategoriesNavegation>
+            {mockedCategories.map((element) => {
+              return (
+                <Styled.CategoriesNavegation
+                  active={element.name === selectedCategory.name}
+                  onClick={() => handleChangeCategory(element)}
+                >
+                  {element.name}
+                </Styled.CategoriesNavegation>
+              );
+            })}
           </Styled.CategoriesNavegationBar>
           <Styled.HomeContentHeader>
             <h2>Pick your part</h2>
           </Styled.HomeContentHeader>
-          <ProductList list={mockedProducsts} />
+          <ProductList list={filteredProducts} />
         </section>
       </Styled.HomeContentContainer>
       <aside>
