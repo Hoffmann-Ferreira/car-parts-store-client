@@ -1,8 +1,8 @@
 import * as Type from "../types";
 import amortecedor4 from "../assets/images/amortecedor4.jpg";
-import amortecedor1 from "../assets/images/amortecedor-1.jpg";
-import amortecedor2 from "../assets/images/amortecedor-2.jpg";
-import amortecedor3 from "../assets/images/amortecedor-3.jpg";
+import amortecedor1 from "../assets/images/amortecedor1.png";
+import amortecedor2 from "../assets/images/amortecedor2.png";
+import amortecedor3 from "../assets/images/amortecedor3.png" ;
 import coldair from "../assets/images/cold-air-intake.jpg";
 import correiaDentada1 from "../assets/images/correia-dentada-1.png";
 import correiaDentada3 from "../assets/images/correia-dentada-3.png";
@@ -10,10 +10,10 @@ import disco from "../assets/images/disco-freio-2.jpg";
 import turbina from "../assets/images/turbina.jpg";
 import mangotes from "../assets/images/metal-horse-mangotes.jpg";
 
-export const MockedProducsts: Type.Product[] = [
+export const mockedProducsts: Type.Product[] = [
   {
     id: "c46e671a-e6fa-457d-bf62-7e38a24b85d6",
-    name: "Shock absorber kit Bilstein",
+    name: "Bilstein shock absorber kit",
     description: "Complete shock absorber kit",
     price: 50.45,
     image: amortecedor4,
@@ -23,7 +23,7 @@ export const MockedProducsts: Type.Product[] = [
   },
   {
     id: "37031f8e-ecae-4d08-98ef-013e26d7575d",
-    name: "Shock absorber Nakata",
+    name: "Nakata shock absorber",
     description: "Rear shock",
     price: 20.05,
     image: amortecedor1,
@@ -33,7 +33,7 @@ export const MockedProducsts: Type.Product[] = [
   },
   {
     id: "dafbc338-de5f-4945-88c9-dea70eebd355",
-    name: "Shock absorber Cofap",
+    name: "Cofap shock absorber",
     description: "Rear shock turbo gás",
     price: 35.05,
     image: amortecedor2,
@@ -43,7 +43,7 @@ export const MockedProducsts: Type.Product[] = [
   },
   {
     id: "b7c3b171-9c1f-42c0-9877-a39a7c2b0bd2",
-    name: "Shock absorber gás Bilstein",
+    name: "Bilstein shock absorber gás",
     description: "Rear shock gás",
     price: 25.05,
     image: amortecedor3,
@@ -93,7 +93,7 @@ export const MockedProducsts: Type.Product[] = [
   },
   {
     id: "cd373d53-7e90-44c1-8045-50d716cb8409",
-    name: "Garrett tubine",
+    name: "Garrett turbine",
     description: "Used to improve power",
     price: 500.05,
     image: turbina,

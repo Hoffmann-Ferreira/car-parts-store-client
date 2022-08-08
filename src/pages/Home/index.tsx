@@ -3,6 +3,7 @@ import Menu from "../../components/Menu";
 import ProductList from "../../components/productslist";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
+import { mockedProducsts } from "../../mocks";
 
 const Home = () => {
   const actualDate = DateTime.now();
@@ -18,21 +19,25 @@ const Home = () => {
             <p>{formateDate}</p>
           </Styled.TitleContainer>
           <Styled.SearchInputContainer>
-            <SearchIcon/>
-            <input placeholder="Search for part"/>
+            <SearchIcon />
+            <input placeholder="Search for part" />
           </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>
         <section>
           <Styled.CategoriesNavegationBar>
-            <Styled.CategoriesNavegation active>Break</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation active>
+              Break
+            </Styled.CategoriesNavegation>
             <Styled.CategoriesNavegation>Engine</Styled.CategoriesNavegation>
-            <Styled.CategoriesNavegation>Suspension</Styled.CategoriesNavegation>
+            <Styled.CategoriesNavegation>
+              Suspension
+            </Styled.CategoriesNavegation>
             <Styled.CategoriesNavegation>Favorite</Styled.CategoriesNavegation>
           </Styled.CategoriesNavegationBar>
           <Styled.HomeContentHeader>
             <h2>Pick your part</h2>
           </Styled.HomeContentHeader>
-          {/* <ProductList /> */}
+          <ProductList list={mockedProducsts} />
         </section>
       </Styled.HomeContentContainer>
       <aside>

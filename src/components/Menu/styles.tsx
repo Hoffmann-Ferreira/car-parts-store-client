@@ -12,7 +12,7 @@ interface MenuItemButtonProps {
 export const MenuContainer = styled.div`
   width: 6.5rem;
   height: 100vh;
-  background: #ffffff;
+  background-color: linear-gradient(#9abce2, #00ffee);
   border-radius: 18px;
   border: solid 2px #9abce2;
   display: flex;
@@ -35,10 +35,9 @@ export const MenuItem = styled.div<MenuItemProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px 0px 0px 12px;
+  border-radius: 12px;
   margin-bottom: 1.5rem;
   margin-left: 0.5rem;
-  background-color: #ffffff;
   cursor: pointer;
 
   ${({ logout }) =>
@@ -51,7 +50,7 @@ export const MenuItem = styled.div<MenuItemProps>`
   ${({ active }) =>
     active &&
     css`
-      background: linear-gradient(#9abce2, #00ffee);
+      background: #00ffee;
     `}
 `;
 
@@ -59,11 +58,11 @@ export const MenuButoon = styled.button<MenuItemButtonProps>`
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 15px;
-  background: #ffffff;
+  background: none;
   :hover {
-    background-color: #9abce2;
     cursor: pointer;
-    transform: scale(1.2);
+    color: #ffffff;
+    transform: scale(1.3);
   }
 
   ${({ active }) =>

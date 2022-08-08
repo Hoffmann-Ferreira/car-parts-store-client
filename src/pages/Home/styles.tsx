@@ -11,7 +11,7 @@ interface ButtonProps {
 
 export const HomeContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   background: linear-gradient(#9abce2, #00ffee);
 
@@ -25,7 +25,7 @@ export const HomeContainer = styled.div`
 `;
 
 export const HomeContentContainer = styled.div`
-  width: calc(100% - 518px);
+  width: calc(100% - 32.375rem);
 `;
 
 export const HomeContentHeader = styled.header`
@@ -41,10 +41,6 @@ export const TitleContainer = styled.div`
   h1 {
     font-family: "Bungee Shade", "cursive";
     color: #000814;
-
-    :hover {
-      color: #fefae0;
-    }
   }
 
   p {
@@ -102,7 +98,7 @@ export const CategoriesNavegation = styled.button<CategoriesNavegationButtonProp
     active &&
     css`
       border-bottom: solid 4px #122d4f;
-      border-radius: 15px;
+      border-radius: 15px; 
       color: #ffffff;
       cursor: pointer;
       transform: scale(1.3);
