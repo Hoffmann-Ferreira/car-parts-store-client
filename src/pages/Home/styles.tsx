@@ -1,7 +1,12 @@
 import styled, { css } from "styled-components";
+import { Theme } from "../../types/styled-components";
 
 interface CategoriesNavegationButtonProps {
   active?: boolean;
+}
+
+interface ButtonProps {
+  theme: Theme;
 }
 
 export const HomeContainer = styled.div`
@@ -10,7 +15,7 @@ export const HomeContainer = styled.div`
   display: flex;
   background: linear-gradient(#9abce2, #00ffee);
 
-  section{
+  section {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,23 +36,21 @@ export const HomeContentHeader = styled.header`
   align-items: center;
   padding: 0 2rem;
   box-sizing: border-box;
-
-  
 `;
 export const TitleContainer = styled.div`
   h1 {
-      font-family: "Bungee Shade", "cursive";
-      color: #000814;
-      :hover {
-        color: #fefae0;
-      }
+    font-family: "Bungee Shade", "cursive";
+    color: #000814;
+
+    :hover {
+      color: #fefae0;
     }
+  }
 
-    p {
-      text-transform: capitalize;
-      font-size: 20px;
-    };
-
+  p {
+    text-transform: capitalize;
+    font-size: 20px;
+  }
 `;
 
 export const SearchInputContainer = styled.div`
@@ -57,21 +60,20 @@ export const SearchInputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.01%;
-  background-color:#FFFFFF;
+  background-color: #ffffff;
 
-  svg{
+  svg {
     width: 20px;
     margin-left: 2%;
   }
 
-  input{
+  input {
     width: 120px;
     height: 4vh;
     text-align: center;
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif;
     outline: none;
-    
   }
 `;
 
@@ -79,7 +81,7 @@ export const CategoriesNavegationBar = styled.div`
   width: 93%;
   height: 4vh;
   margin-top: 2%;
-  border-bottom: solid 2px #FFFFFF;
+  border-bottom: solid 2px #ffffff;
   display: flex;
 `;
 
@@ -88,29 +90,31 @@ export const CategoriesNavegation = styled.button<CategoriesNavegationButtonProp
   margin-right: 1.5rem;
   font-size: 18px;
   cursor: pointer;
-  background-color: #7ACAE5;
+  background-color: #7acae5;
   color: #000000;
 
-  :hover{
-    color: #FFFFFF;
+  :hover {
     transform: scale(1.3);
     cursor: pointer;
   }
 
-  ${({active}) => active && css`
-    border-bottom: solid 4px #122d4f; 
-    border-radius: 15px;
-    cursor: pointer;
-      `}
+  ${({ active }) =>
+    active &&
+    css`
+      border-bottom: solid 4px #122d4f;
+      border-radius: 15px;
+      color: #ffffff;
+      cursor: pointer;
+      transform: scale(1.3);
+    `}
 `;
 
-export const ProductsHeaderContainer =  styled.div`
+export const ProductsHeaderContainer = styled.div`
   width: 100%;
   height: 8vh;
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
-  
 `;
 
 // export const SelectHomeContent = styled.select`

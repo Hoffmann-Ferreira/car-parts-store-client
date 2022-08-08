@@ -30,7 +30,6 @@ export const MenuContainer = styled.div`
 `;
 
 export const MenuItem = styled.div<MenuItemProps>`
-  /* border: solid red; */
   width: 5.75rem;
   height: 5rem;
   display: flex;
