@@ -17,10 +17,15 @@ export const CardContainer = styled.div<CardContainerProps>`
     flex-wrap: wrap;
     text-align: center;
     padding: 0.2rem;
+    cursor: pointer;
 
     img {
       width: 9rem;
       height: 9rem;
     }
   `}
+
+  :hover {
+    transform: scale(1.1);
+  }
 `;
