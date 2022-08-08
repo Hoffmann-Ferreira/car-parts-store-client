@@ -13,7 +13,7 @@ export const MenuContainer = styled.div`
   width: 6.5rem;
   height: 100vh;
   background-color: linear-gradient(#9abce2, #00ffee);
-  border-radius: 18px;
+  border-radius:  18px 0px 18px 0px;
   border: solid 2px #9abce2;
   display: flex;
   flex-direction: column;
