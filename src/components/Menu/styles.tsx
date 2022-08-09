@@ -13,8 +13,8 @@ export const MenuContainer = styled.div`
   width: 6.5rem;
   height: 100vh;
   background-color: linear-gradient(#9abce2, #00ffee);
-  border-radius:  0px 18px 18px 0px;
-  border: solid 2px #FFFFFF;
+  border-radius: 18px;
+  border-right: solid 2px #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,7 @@ export const MenuItem = styled.div<MenuItemProps>`
   ${({ active }) =>
     active &&
     css`
-      background: #00ffee;
+      border: none;
     `}
 `;
 
@@ -71,7 +71,7 @@ export const MenuButoon = styled.button<MenuItemButtonProps>`
       background-color: #023e8a;
       cursor: pointer;
       color: #ffffff;
-      box-shadow: -3px 3px 10px #012654, 3px -3px 10px #0356c0;
+      box-shadow: -1px 1px 5px #012654, 1px -1px 5px #0356c0;
       :hover {
         background-color: #023e8a;
       }

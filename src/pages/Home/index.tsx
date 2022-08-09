@@ -40,6 +40,7 @@ const Home = () => {
             {mockedCategories.map((element) => {
               return (
                 <Styled.CategoriesNavegation
+                  key={element.id}
                   active={element.name === selectedCategory.name}
                   onClick={() => setSelectedCategory(element)}
                 >
@@ -54,7 +55,7 @@ const Home = () => {
           <ProductList list={filteredProducts} />
         </section>
       </Styled.HomeContentContainer>
-      <OrderDetails/>
+      <OrderDetails />
     </Styled.HomeContainer>
   );
 };
