@@ -8,6 +8,10 @@ export const OrderDetailsContainer = styled.aside`
     background-color: ${theme.colors.primaryColor};
     border-radius: 18px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    position: relative;
   `}
 `;
 
@@ -18,7 +22,6 @@ export const OrderDetailsHeader = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: solid ${theme.colors.borderMenu};
 
     div {
       width: 90%;
@@ -31,4 +34,48 @@ export const OrderDetailsHeader = styled.header`
       margin-bottom: 1rem;
     }
   `}
+`;
+
+export const CheckoutDetailsContainer = styled.div`
+${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   /* align-content: center; */
+`}
+`;
+
+export const CheckoutDetailsHeader = styled.div`
+${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    .itemH3 {
+      margin-left: 6.75rem;
+    }
+`}
+`;
+
+export const OrderDetailsFooter = styled.footer`
+  ${({ theme }) => css`
+    width: 23.500rem;
+    /* height: 14.875rem; */
+    border-top: ${theme.colors.borderMenu};
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3rem;
+
+    div{
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+    }
+
+    button{
+      margin-top: 1rem;
+    }
+`}
 `;

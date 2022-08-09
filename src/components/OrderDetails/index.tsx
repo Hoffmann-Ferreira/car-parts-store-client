@@ -9,36 +9,34 @@ const OrderDetails = () => {
           <h2>Order Number</h2>
         </div>
       </Styled.OrderDetailsHeader>
-      <div>
-        <div>
-          <h3>item</h3>
-          <h3>the amount</h3>
-          <h3>price</h3>
-        </div>
+      <Styled.CheckoutDetailsContainer>
+        <Styled.CheckoutDetailsHeader>
+          <h3>Item</h3>
+          <h3 className="itemH3">The amount</h3>
+          <h3>Price</h3>
+        </Styled.CheckoutDetailsHeader>
         <div className="checkout-cars-container">
           <div> Card Checkout </div>
           <div> Card Checkout </div>
           <div> Card Checkout </div>
         </div>
-      </div>
-      <div>
+      </Styled.CheckoutDetailsContainer>
+      <Styled.OrderDetailsFooter>
         <div>
-          <p>discount</p>
-          <p>R$0.00</p>
+          <p>Discount</p>
+          <p>$0.00</p>
         </div>
-      </div>
-      <div>
         <div>
-          <p>total</p>
-          <p>R$0.00</p>
+          <p>Total</p>
+          <p>$0.00</p>
         </div>
         <Button
-            text="Click to proceed to payment"
-            size="large"
-            onClick={() => {}}
-            variant={false}
-          />
-      </div>
+          text="Click to proceed to payment"
+          size="large"
+          onClick={() => {}}
+          variant={false}
+        />
+      </Styled.OrderDetailsFooter>
     </Styled.OrderDetailsContainer>
   );
 };
