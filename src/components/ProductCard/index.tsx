@@ -1,4 +1,5 @@
 import { Product } from "../../types";
+import * as Styled from "./styles";
 
 interface ProductCardProps {
     product: Product;
@@ -6,12 +7,12 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
     return(
-        <div>
+        <Styled.CardContainer>
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <p>${product.price}</p>
             <p>{product.description}</p>
-        </div>
+        </Styled.CardContainer>
     );
 };
 

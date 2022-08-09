@@ -9,7 +9,7 @@ interface ProductsListProps {
 const ProductList = ({ list }: ProductsListProps) => {
   return (
     <Styled.ProductsListContainer>
-      {list.map((element, index) => (
+      {list.map((element) => (
         <ProductCard product={element} key={element.id} />
       ))}
     </Styled.ProductsListContainer>

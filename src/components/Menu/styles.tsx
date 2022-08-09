@@ -12,9 +12,9 @@ interface MenuItemButtonProps {
 export const MenuContainer = styled.div`
   width: 6.5rem;
   height: 100vh;
-  background: #ffffff;
+  background-color: linear-gradient(#9abce2, #00ffee);
   border-radius: 18px;
-  border: solid 2px #9abce2;
+  border-right: solid 2px #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,15 +30,14 @@ export const MenuContainer = styled.div`
 `;
 
 export const MenuItem = styled.div<MenuItemProps>`
-  width: 5.75rem;
+  width: 5rem;
   height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px 0px 0px 12px;
+  border-radius: 12px;
   margin-bottom: 1.5rem;
   margin-left: 0.5rem;
-  background-color: #ffffff;
   cursor: pointer;
 
   ${({ logout }) =>
@@ -51,7 +50,7 @@ export const MenuItem = styled.div<MenuItemProps>`
   ${({ active }) =>
     active &&
     css`
-      background: linear-gradient(#9abce2, #00ffee);
+      border: none;
     `}
 `;
 
@@ -59,11 +58,11 @@ export const MenuButoon = styled.button<MenuItemButtonProps>`
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 15px;
-  background: #ffffff;
+  background: none;
   :hover {
-    background-color: #9abce2;
     cursor: pointer;
-    transform: scale(1.2);
+    color: #ffffff;
+    transform: scale(1.3);
   }
 
   ${({ active }) =>
@@ -72,7 +71,7 @@ export const MenuButoon = styled.button<MenuItemButtonProps>`
       background-color: #023e8a;
       cursor: pointer;
       color: #ffffff;
-      box-shadow: -3px 3px 10px #012654, 3px -3px 10px #0356c0;
+      box-shadow: -1px 1px 5px #012654, 1px -1px 5px #0356c0;
       :hover {
         background-color: #023e8a;
       }
