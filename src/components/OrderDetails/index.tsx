@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import Button from "../Button";
 import CheckoutCard from "../ChekoutCard";
 import * as Styled from "./styles";
@@ -34,7 +35,7 @@ const OrderDetails = () => {
         <Button
           text="Click to proceed to payment"
           size="large"
-          onClick={() => {}}
+          onClick={() => toast.error("Sessão em desenvovimento")}
           variant={false}
         />
       </Styled.OrderDetailsFooter>
