@@ -50,7 +50,7 @@ const Home = () => {
             })}
           </Styled.CategoriesNavegationBar>
           <Styled.HomeContentHeader>
-            <h2>Pick your part</h2>
+            <h2>Click on the product to add it to the order</h2>
           </Styled.HomeContentHeader>
           <ProductList list={filteredProducts} />
         </section>

@@ -1,4 +1,5 @@
 import Button from "../Button";
+import CheckoutCard from "../ChekoutCard";
 import * as Styled from "./styles";
 
 const OrderDetails = () => {
@@ -6,7 +7,7 @@ const OrderDetails = () => {
     <Styled.OrderDetailsContainer>
       <Styled.OrderDetailsHeader>
         <div>
-          <h2>Order Number</h2>
+          <h2>Order Number: 1</h2>
         </div>
       </Styled.OrderDetailsHeader>
       <Styled.CheckoutDetailsContainer>
@@ -15,19 +16,19 @@ const OrderDetails = () => {
           <h3 className="itemH3">The amount</h3>
           <h3>Price</h3>
         </Styled.CheckoutDetailsHeader>
-        <div className="checkout-cars-container">
+        <Styled.CheckoutCardsContainer>
+          {/* <CheckoutCard /> */}
           <div> Card Checkout </div>
           <div> Card Checkout </div>
-          <div> Card Checkout </div>
-        </div>
+        </Styled.CheckoutCardsContainer>
       </Styled.CheckoutDetailsContainer>
       <Styled.OrderDetailsFooter>
         <div>
-          <p>Discount</p>
+          <h4>Discount</h4>
           <p>$0.00</p>
         </div>
         <div>
-          <p>Total</p>
+          <h4>Total</h4>
           <p>$0.00</p>
         </div>
         <Button

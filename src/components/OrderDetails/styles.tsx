@@ -63,10 +63,10 @@ export const OrderDetailsFooter = styled.footer`
   ${({ theme }) => css`
     width: 23.500rem;
     /* height: 14.875rem; */
-    border-top: ${theme.colors.borderMenu};
+    border-top: solid ${theme.colors.borderMenu};
     position: absolute;
     bottom: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 
     div{
       display: flex;
@@ -78,4 +78,13 @@ export const OrderDetailsFooter = styled.footer`
       margin-top: 1rem;
     }
 `}
+`;
+
+export const CheckoutCardsContainer = styled.div`
+  ${() => css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  `}
 `;
