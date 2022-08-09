@@ -63,7 +63,6 @@ export const OrderDetailsFooter = styled.footer`
   ${({ theme }) => css`
     width: 23.500rem;
     /* height: 14.875rem; */
-    border-top: solid ${theme.colors.borderMenu};
     position: absolute;
     bottom: 0;
     margin-bottom: 1rem;
