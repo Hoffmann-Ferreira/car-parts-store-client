@@ -1,12 +1,20 @@
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 const Router = () => {
+  const [logged, setLogged] = useState<boolean>(false);
+
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      {logged ? (
+        <Route path="/" element={<Home />} />
+      ): (
+        
+      <Route path="/login" element={<Login setLogged={setLogged} />} />
+      )
+    }
     </Routes>
   );
 };
