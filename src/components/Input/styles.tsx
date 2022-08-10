@@ -9,7 +9,7 @@ export const StyledInput = styled.input<styledInputProps>`
     all: unset;
     padding-left: 1rem;
     border-radius: 8px;
-    width: 18.75rem;
+    width: 18.625rem;
     height: 3rem;
     background-color: #ffff;
 

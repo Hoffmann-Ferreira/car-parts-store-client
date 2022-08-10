@@ -35,7 +35,7 @@ const OrderDetails = () => {
         </div>
         <Button
           text="Click to proceed to payment"
-          size="large"
+          size="x-large"
           onClick={() =>
             toast.error("Under development!", {
               icon: "❌",
@@ -46,7 +46,6 @@ const OrderDetails = () => {
               },
             })
           }
-          variant={false}
         />
       </Styled.OrderDetailsFooter>
     </Styled.OrderDetailsContainer>
