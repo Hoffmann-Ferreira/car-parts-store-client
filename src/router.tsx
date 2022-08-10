@@ -9,7 +9,7 @@ const Router = () => {
   return (
     <Routes>
       {logged ? (
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home setLogged={setLogged} />} />
       ): (
         
       <Route path="/login" element={<Login setLogged={setLogged} />} />
