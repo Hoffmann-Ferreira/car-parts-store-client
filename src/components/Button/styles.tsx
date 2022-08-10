@@ -3,8 +3,8 @@ import { Theme } from "../../types/styled-components";
 
 interface StyledButtonProps {
   theme: Theme;
-  variant?: "disabled" | "cancel" | false;
-  size: "small" | "large" | false;
+  variant?: "disabled" | "cancel";
+  size: "small" | "large" | "x-large";
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
@@ -40,6 +40,13 @@ export const StyledButton = styled.button<StyledButtonProps>`
     `};
 
     ${size === "large" &&
+    css`
+      width: 18.625rem;
+      height: 3rem;
+      font-size: 1.3em;
+    `};
+
+    ${size === "x-large" &&
     css`
       width: 22.563rem;
       height: 3rem;
