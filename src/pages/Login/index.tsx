@@ -21,7 +21,7 @@ const navigate = useNavigate()
         setLogged(true);
         navigate("/")
     } else {
-       toast.error("incorrect username or password", {
+       toast.error("incorrect username or password!", {
         icon: "❌",
         style: {
           borderRadius: "10px",
