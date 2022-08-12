@@ -14,6 +14,7 @@ const Menu = ({ path, setLogged }: MenuProps) => {
 
   const handleLogout = () => {
     setLogged(false);
+    navigate("/login");
   };
 
   return (
@@ -29,7 +30,7 @@ const Menu = ({ path, setLogged }: MenuProps) => {
           </Styled.MenuButoon>
         </Styled.MenuItem>
         <Styled.MenuItem active={path === "settings"}>
-          <Styled.MenuButoon active={path === "settings"}>
+          <Styled.MenuButoon onClick={() => navigate("/settings")} active={path === "settings"}>
             <SettingsIcon />
           </Styled.MenuButoon>
         </Styled.MenuItem>
