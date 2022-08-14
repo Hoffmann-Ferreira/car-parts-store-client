@@ -1,6 +1,7 @@
 import * as Styled from "./styles";
 import { Dispatch, SetStateAction } from "react";
 import Menu from "../../components/Menu";
+import { MarketIcon, InfoIcon, PromotionIcon  } from "../../assets/icons"
 
 interface SettingsProps {
     setLogged: Dispatch<SetStateAction<boolean>>;
@@ -13,19 +14,27 @@ const Settings = ({setLogged}: SettingsProps) => {
             <Styled.SettingsNavegationContainer>
                 <h2> Settings</h2>
                 <Styled.SettingsNavegationButtonList>
-                    <Styled.SettingsNavegationButtonContainer>
-                        <div className="buttonSelectSide">
-                            <img/>
+                    <Styled.SettingsNavegationButtonContainer>  
+                        <Styled.SettingsNavegationButtonSelected>
+                            <MarketIcon/>
                             <h4>Manage products</h4>
                             <p>add remove and edit</p>
-                        </div>
+                        </Styled.SettingsNavegationButtonSelected>
                     </Styled.SettingsNavegationButtonContainer>
-                    <Styled.SettingsNavegationButtonContainer>
-                        <div className="buttonSelectSide">
-                            <img/>
-                            <h4>Manage users</h4>
+                    <Styled.SettingsNavegationButtonContainer active>
+                        
+                        <Styled.SettingsNavegationButtonSelected active>
+                            <InfoIcon/>
+                            <h4>Manage Users </h4>
                             <p>add remove and edit</p>
-                        </div>
+                        </Styled.SettingsNavegationButtonSelected>
+                    </Styled.SettingsNavegationButtonContainer>
+                    <Styled.SettingsNavegationButtonContainer> 
+                        <Styled.SettingsNavegationButtonSelected>
+                           <PromotionIcon/>
+                            <h4>Manage categories</h4>
+                            <p>add remove and edit</p>
+                        </Styled.SettingsNavegationButtonSelected>
                     </Styled.SettingsNavegationButtonContainer>
 
                 </Styled.SettingsNavegationButtonList>
