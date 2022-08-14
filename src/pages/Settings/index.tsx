@@ -2,6 +2,9 @@ import * as Styled from "./styles";
 import { Dispatch, SetStateAction } from "react";
 import Menu from "../../components/Menu";
 import { MarketIcon, InfoIcon, PromotionIcon  } from "../../assets/icons"
+import Button from "../../components/Button";
+import { mockedProducsts } from "../../mocks";
+import SettingsProductCard from "../../components/SettingsProductCard";
 
 interface SettingsProps {
     setLogged: Dispatch<SetStateAction<boolean>>;
@@ -16,16 +19,16 @@ const Settings = ({setLogged}: SettingsProps) => {
                 <Styled.SettingsNavegationButtonList>
                     <Styled.SettingsNavegationButtonContainer>  
                         <Styled.SettingsNavegationButtonSelected>
-                            <MarketIcon/>
-                            <h4>Manage products</h4>
+                             <InfoIcon/>
+                            <h4>Manage users</h4>
                             <p>add remove and edit</p>
                         </Styled.SettingsNavegationButtonSelected>
                     </Styled.SettingsNavegationButtonContainer>
                     <Styled.SettingsNavegationButtonContainer active>
                         
                         <Styled.SettingsNavegationButtonSelected active>
-                            <InfoIcon/>
-                            <h4>Manage Users </h4>
+                           <MarketIcon/>
+                            <h4>Manage products </h4>
                             <p>add remove and edit</p>
                         </Styled.SettingsNavegationButtonSelected>
                     </Styled.SettingsNavegationButtonContainer>
@@ -40,26 +43,23 @@ const Settings = ({setLogged}: SettingsProps) => {
                 </Styled.SettingsNavegationButtonList>
             </Styled.SettingsNavegationContainer>
 
-            <div className="entitesContainer">
-                <div>
-                    <h2>Gerenciar produtos</h2>
-                    <div className="categoriesSelector">
-                        <button>Categoria</button>
-                        <button>Categoria</button>
-                        <button>Categoria</button>
-                    </div>
-                    <div className="entites list">
-                    <div>Entity card</div>
-                    <div>Entity card</div>
-                    <div>Entity card</div>
-                    <div>Entity card</div>
-                    </div>
-                    <div className="confirmationContainer">
-                        <button> Cancenlar</button>
-                        <button> Cancenlar</button>
-                    </div>
-                </div>
-            </div>
+            <Styled.EntitiesEditContainer>
+                    <h2>Manage products</h2>
+                    <Styled.EntitiesEditCategorySelector>
+                        <Styled.EntitiesEditCategoryButton active>Engine</Styled.EntitiesEditCategoryButton>
+                        <Styled.EntitiesEditCategoryButton>Suspension</Styled.EntitiesEditCategoryButton>
+                        <Styled.EntitiesEditCategoryButton>Break</Styled.EntitiesEditCategoryButton>
+                    </Styled.EntitiesEditCategorySelector>
+                    <Styled.EntitesEditList>
+                    <Styled.AddEntitesEditCard><h2>+</h2>
+                    <p> Inten add</p></Styled.AddEntitesEditCard>
+                        {mockedProducsts.map((element) =><SettingsProductCard product={element} key={element.id}/>)}
+                    </Styled.EntitesEditList>
+                    <Styled.ConfirmationContainer>
+                        <Button text="Cancel" variant="cancel" size="large"/> 
+                        <Button text="Save changes" size="large"/>
+                    </Styled.ConfirmationContainer>
+            </Styled.EntitiesEditContainer>
         </Styled.SettingsContainer>
     );
 
