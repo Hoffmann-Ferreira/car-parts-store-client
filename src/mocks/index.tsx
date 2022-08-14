@@ -3,7 +3,7 @@ import amortecedor4 from "../assets/images/amortecedor4.jpg";
 import amortecedor1 from "../assets/images/amortecedor1.png";
 import amortecedor2 from "../assets/images/amortecedor2.png";
 import amortecedor3 from "../assets/images/amortecedor3.png";
-import coldair from "../assets/images/cold-air-intake.jpg";
+import coldair from "../assets/images/coldairIntake.jpg";
 import correiaDentada1 from "../assets/images/correia-dentada-1.png";
 import correiaDentada3 from "../assets/images/correia-dentada-3.png";
 import disco from "../assets/images/disco-freio-2.jpg";
