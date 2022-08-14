@@ -4,11 +4,11 @@ import amortecedor1 from "../assets/images/amortecedor1.png";
 import amortecedor2 from "../assets/images/amortecedor2.png";
 import amortecedor3 from "../assets/images/amortecedor3.png";
 import coldair from "../assets/images/coldairIntake.jpg";
-import correiaDentada1 from "../assets/images/correia-dentada-1.png";
-import correiaDentada3 from "../assets/images/correia-dentada-3.png";
-import disco from "../assets/images/disco-freio-2.jpg";
+import correiaDentada1 from "../assets/images/correiadentada1.png";
+import correiaDentada3 from "../assets/images/correiadentada3.png";
+import disco from "../assets/images/discifreio2.jpg";
 import turbina from "../assets/images/turbina.jpg";
-import mangotes from "../assets/images/metal-horse-mangotes.jpg";
+import mangotes from "../assets/images/metalhorsemangotes.jpg";
 
 export const mockedProducsts: Type.Product[] = [
   {
@@ -16,7 +16,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Bilstein shock absorber kit",
     description: "Complete shock absorber kit",
     price: 50.45,
-    image: amortecedor4,
+    image: "https://i.imgur.com/pbAj10n.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
@@ -26,7 +26,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Nakata shock absorber",
     description: "Rear shock",
     price: 20.05,
-    image: amortecedor1,
+    image: "https://i.imgur.com/SsWOdYV.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
@@ -36,7 +36,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Cofap shock absorber",
     description: "Rear shock turbo gás",
     price: 35.05,
-    image: amortecedor2,
+    image: "https://i.imgur.com/THHVBjW.png",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
@@ -46,7 +46,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Bilstein shock absorber gás",
     description: "Rear shock gás",
     price: 25.05,
-    image: amortecedor3,
+    image: "https://i.imgur.com/7ThvKRx.png",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
@@ -56,7 +56,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Cold air intake",
     description: "Used to improve air intake",
     price: 100.05,
-    image: coldair,
+    image: "https://i.imgur.com/occ0bFd.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
@@ -66,7 +66,7 @@ export const mockedProducsts: Type.Product[] = [
     name: " ContinentalToothed belt",
     description: "Used to make the motor rotate asynchronously",
     price: 75.05,
-    image: correiaDentada1,
+    image: "https://i.imgur.com/M4hj6Ov.png",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
@@ -76,7 +76,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Ranalle Toothed belt",
     description: "Used to make the motor rotate asynchronously",
     price: 65.05,
-    image: correiaDentada3,
+    image: "https://i.imgur.com/ZiXHJG8.png",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
@@ -86,7 +86,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Brembo brake disc",
     description: "Used to stop the vehicle",
     price: 200.05,
-    image: disco,
+    image: "https://i.imgur.com/4hahfNp.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "acf5ba27-5892-4286-80bc-5d891d18152f",
@@ -96,7 +96,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Garrett turbine",
     description: "Used to improve power",
     price: 500.05,
-    image: turbina,
+    image: "https://i.imgur.com/BfE3KKI.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
@@ -106,7 +106,7 @@ export const mockedProducsts: Type.Product[] = [
     name: "Metal Horse mangotes",
     description: "Used to improve power",
     price: 100.05,
-    image: mangotes,
+    image: "https://i.imgur.com/k70U0hO.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
     categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
