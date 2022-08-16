@@ -17,11 +17,11 @@ const navigate = useNavigate()
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
-    if(email ==="andrei@blue.com" && password === "admin") {
+    if(email !=="" && password !== "") {
         setLogged(true);
         navigate("/")
     } else {
-       toast.error("incorrect username or password!", {
+       toast.error("fill in the fields login!", {
         icon: "❌",
         style: {
           borderRadius: "10px",
