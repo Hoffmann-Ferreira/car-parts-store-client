@@ -4,28 +4,16 @@ import { HomeIcon, SettingsIcon, LogoutIcon } from "../../assets/icons/index";
 import { useNavigate } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
 import toast from "react-hot-toast";
+import { userAuth } from "../../contexts/auth";
 
 interface MenuProps {
   path: "home" | "settings";
-  setLogged: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ path, setLogged }: MenuProps) => {
+const Menu = ({ path }: MenuProps) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    setLogged(false);
-    navigate("/login");
-    toast.success("successfully logged out", {
-      icon: "❗",
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-      },
-    });
-  };
+  const { logout } = userAuth()
 
   return (
     <Styled.MenuContainer>
@@ -46,7 +34,7 @@ const Menu = ({ path, setLogged }: MenuProps) => {
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem logout>
-        <Styled.MenuButoon onClick={handleLogout}>
+        <Styled.MenuButoon onClick={logout}>
           <LogoutIcon />
         </Styled.MenuButoon>
       </Styled.MenuItem>
