@@ -2,7 +2,7 @@ import { Toaster } from "react-hot-toast";
 import "./App.css";
 import Router from "./router";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Toaster />

@@ -2,36 +2,41 @@ import * as Styled from "./styles";
 import Input from "../../components/Input";
 import logo from "../../assets/images/logo.png";
 import Button from "../../components/Button";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { userAuth } from "../../contexts/auth";
 
-interface LoginProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
-}
 
-const Login = ({ setLogged }: LoginProps) => {
-const navigate = useNavigate()
+const Login = () => {
+  const {login} = userAuth();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
-    if(email ==="andrei@blue.com" && password === "admin") {
-        setLogged(true);
-        navigate("/")
-    } else {
-       toast.error("incorrect username or password!", {
-        icon: "❌",
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      }) 
-    }
+    if (email !== "" && password !== "") {
+      const data = {
+        email,
+        password,
+      };
 
-    
+      return axios
+        .post("https://car-parts-store-api.herokuapp.com/auth/login", data)
+        .then((res) => {
+          login({token: res.data.token, user: res.data.user})
+        })
+        .catch(() => {
+          toast.error("incorrect username or password!", {
+            icon: "❌",
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+            },
+          });
+        });
+    }
   };
 
   return (

@@ -3,19 +3,17 @@ import logo from "../../assets/images/logo.png";
 import { HomeIcon, SettingsIcon, LogoutIcon } from "../../assets/icons/index";
 import { useNavigate } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
+import toast from "react-hot-toast";
+import { userAuth } from "../../contexts/auth";
 
 interface MenuProps {
   path: "home" | "settings";
-  setLogged: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ path, setLogged }: MenuProps) => {
+const Menu = ({ path }: MenuProps) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    setLogged(false);
-    navigate("/login");
-  };
+  const { logout } = userAuth();
 
   return (
     <Styled.MenuContainer>
@@ -30,13 +28,20 @@ const Menu = ({ path, setLogged }: MenuProps) => {
           </Styled.MenuButoon>
         </Styled.MenuItem>
         <Styled.MenuItem active={path === "settings"}>
-          <Styled.MenuButoon onClick={() => navigate("/settings")} active={path === "settings"}>
+          <Styled.MenuButoon
+            onClick={() => navigate("/settings")}
+            active={path === "settings"}
+          >
             <SettingsIcon />
           </Styled.MenuButoon>
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem logout>
-        <Styled.MenuButoon onClick={handleLogout}>
+        <Styled.MenuButoon
+          onClick={() => {
+            logout();
+          }}
+        >
           <LogoutIcon />
         </Styled.MenuButoon>
       </Styled.MenuItem>

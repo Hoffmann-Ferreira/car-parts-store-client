@@ -3,8 +3,10 @@ import Button from "../Button";
 import CheckoutCard from "../ChekoutCard";
 import * as Styled from "./styles";
 import { mockedProducsts } from "../../mocks";
+import { useNavigate } from "react-router-dom";
 
 const OrderDetails = () => {
+  const navigate = useNavigate();
   return (
     <Styled.OrderDetailsContainer>
       <Styled.OrderDetailsHeader>
@@ -36,16 +38,7 @@ const OrderDetails = () => {
         <Button
           text="Click to proceed to payment"
           size="x-large"
-          onClick={() =>
-            toast.error("Under development!", {
-              icon: "❌",
-              style: {
-                borderRadius: "10px",
-                background: "#333",
-                color: "#fff",
-              },
-            })
-          }
+          onClick={() => navigate("/desenvolvimento")}
         />
       </Styled.OrderDetailsFooter>
     </Styled.OrderDetailsContainer>
