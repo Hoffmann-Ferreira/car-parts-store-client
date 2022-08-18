@@ -1,7 +1,14 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../types";
+import axios from "axios";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -45,6 +52,45 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       },
     });
   };
+
+  const checkTokenExperation = () => {
+    const user = JSON.parse(localStorage.getItem("user") || "");
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    axios
+      .get(
+        `https://car-parts-store-api.herokuapp.com/users/${user.id}`,
+        headers
+      )
+      .then(() => {
+        setLogged(true);
+        navigate("/");
+      })
+      .catch(() => {
+        logout();
+        toast.error("need to login again", {
+          icon: "❌",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      });
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) checkTokenExperation();
+  }, []);
+
   return (
     <AuthContext.Provider value={{ logged, login, logout }}>
       {children}

@@ -13,7 +13,7 @@ interface MenuProps {
 const Menu = ({ path }: MenuProps) => {
   const navigate = useNavigate();
 
-  const { logout } = userAuth()
+  const { logout } = userAuth();
 
   return (
     <Styled.MenuContainer>
@@ -28,13 +28,20 @@ const Menu = ({ path }: MenuProps) => {
           </Styled.MenuButoon>
         </Styled.MenuItem>
         <Styled.MenuItem active={path === "settings"}>
-          <Styled.MenuButoon onClick={() => navigate("/settings")} active={path === "settings"}>
+          <Styled.MenuButoon
+            onClick={() => navigate("/settings")}
+            active={path === "settings"}
+          >
             <SettingsIcon />
           </Styled.MenuButoon>
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem logout>
-        <Styled.MenuButoon onClick={logout}>
+        <Styled.MenuButoon
+          onClick={() => {
+            logout();
+          }}
+        >
           <LogoutIcon />
         </Styled.MenuButoon>
       </Styled.MenuItem>
