@@ -1,15 +1,13 @@
 import * as Styled from "./styles";
-import Input from "../../components/Input";
 import logo from "../../assets/images/logo.png";
 import Button from "../../components/Button";
-import { useState } from "react";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { userAuth } from "../../contexts/auth";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledInput } from "../../components/Input/styles";
+import { api } from "../../Services";
 
 interface LoginData {
   email: string;
@@ -42,8 +40,8 @@ const Login = () => {
   } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
   const handleLogin = (data: LoginData) => {
-    axios
-      .post("https://car-parts-store-api.herokuapp.com/auth/login", data)
+    api
+      .post("/auth/login", data)
       .then((res) => {
         login({ token: res.data.token, user: res.data.user });
       })

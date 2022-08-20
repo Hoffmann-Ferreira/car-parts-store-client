@@ -1,5 +1,4 @@
 import * as Styled from "./styles";
-import { Dispatch, SetStateAction } from "react";
 import Menu from "../../components/Menu";
 import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import Button from "../../components/Button";
