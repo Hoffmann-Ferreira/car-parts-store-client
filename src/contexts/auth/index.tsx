@@ -8,7 +8,7 @@ import {
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../types";
-import axios from "axios";
+import { api } from "../../Services";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -63,11 +63,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       },
     };
 
-    axios
-      .get(
-        `https://car-parts-store-api.herokuapp.com/users/${user.id}`,
-        headers
-      )
+    api
+      .get(`/users/${user.id}`, headers)
       .then(() => {
         setLogged(true);
         navigate("/");

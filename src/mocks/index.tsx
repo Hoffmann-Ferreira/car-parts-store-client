@@ -19,7 +19,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450401252679700/amortecedor4.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    categoryId: "7bd08b3d-05e9-4f0e-bffe-3388cbec21ee",
   },
   {
     id: "37031f8e-ecae-4d08-98ef-013e26d7575d",
@@ -29,7 +29,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450517673975848/amortecedor1.png?width=613&height=613",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    categoryId: "7bd08b3d-05e9-4f0e-bffe-3388cbec21ee",
   },
   {
     id: "dafbc338-de5f-4945-88c9-dea70eebd355",
@@ -39,7 +39,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450486086668298/amortecedor2.png?width=613&height=613",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    categoryId: "7bd08b3d-05e9-4f0e-bffe-3388cbec21ee",
   },
   {
     id: "b7c3b171-9c1f-42c0-9877-a39a7c2b0bd2",
@@ -49,7 +49,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450444873449512/amortecedor3.png?width=920&height=613",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    categoryId: "7bd08b3d-05e9-4f0e-bffe-3388cbec21ee",
   },
   {
     id: "09d78b02-1605-42c9-b741-cd6c44ee3cf2",
@@ -59,7 +59,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450357455757332/coldairIntake.jpg?width=468&height=612",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    categoryId: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
   },
   {
     id: "1d41c154-ed26-4121-b4de-e3e9e6f42c98",
@@ -69,7 +69,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450200777543690/correiadentada1.png",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    categoryId: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
   },
   {
     id: "b4a8e456-bfda-4e8c-9565-b16d57179ed7",
@@ -79,7 +79,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008450172788953108/correiadentada3.png",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    categoryId: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
   },
   {
     id: "bddbe729-7793-4b1d-9eb1-d0fa2a55103c",
@@ -89,7 +89,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008449951749128222/discofreio2.jpg?width=919&height=613",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "acf5ba27-5892-4286-80bc-5d891d18152f",
+    categoryId: "3b3595fc-1c1e-4607-a091-c80e72333d7f",
   },
   {
     id: "cd373d53-7e90-44c1-8045-50d716cb8409",
@@ -99,7 +99,7 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008449286377320499/turbina.jpg",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    categoryId: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
   },
   {
     id: "b77d4026-d8cb-4b5a-b559-a0ed656ed6be",
@@ -109,25 +109,25 @@ export const mockedProducsts: Type.Product[] = [
     image: "https://media.discordapp.net/attachments/967162864408346697/1008449342102851664/metalhorsemangotes.jpg?width=613&height=613",
     createdAt: new Date(),
     updatedAt: new Date(),
-    categoryId: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    categoryId: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
   },
 ];
 
 export const mockedCategories: Type.Category[] = [
   {
-    id: "2a8094b3-4f25-4323-8c39-1d16ca38f6d2",
+    id: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
     name: "Engine",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: "8e75e69d-29f2-4371-a0a7-d9962e16f579",
+    id: "7bd08b3d-05e9-4f0e-bffe-3388cbec21ee",
     name: "Suspension",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: "acf5ba27-5892-4286-80bc-5d891d18152f",
+    id: "3b3595fc-1c1e-4607-a091-c80e72333d7f",
     name: "Break",
     createdAt: new Date(),
     updatedAt: new Date(),
