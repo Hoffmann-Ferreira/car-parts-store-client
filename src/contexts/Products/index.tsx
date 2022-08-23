@@ -1,4 +1,10 @@
-import { createContext, useContext, ReactNode, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
 import { api } from "../../Services";
 import { Product } from "../../types";
 import { userAuth } from "../auth";
@@ -11,10 +17,12 @@ interface ProductsProviderData {
   products: Product[];
 }
 
-const ProductsContext = createContext<ProductsProviderData>({} as ProductsProviderData);
+const ProductsContext = createContext<ProductsProviderData>(
+  {} as ProductsProviderData
+);
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-  const {logged }= userAuth()
+  const { logged } = userAuth();
 
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -27,19 +35,21 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
       },
     };
 
-    api.get("/products", headers).then((res) => { 
+    api.get("/products", headers).then((res) => {
       console.log(res);
-      setProducts(res.data)})
+      setProducts(res.data);
+    });
   };
 
   useEffect(() => {
-    handleGetProducts();
+    if (logged && products.length === 0) handleGetProducts();
   }, [logged]);
 
   return (
-    <ProductsContext.Provider value={{products}}>{children}</ProductsContext.Provider>
+    <ProductsContext.Provider value={{ products }}>
+      {children}
+    </ProductsContext.Provider>
   );
 };
-
 
 export const useProducts = () => useContext(ProductsContext);
