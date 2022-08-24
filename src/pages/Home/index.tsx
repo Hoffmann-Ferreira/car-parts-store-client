@@ -12,8 +12,6 @@ import { useProducts } from "../../contexts/Products";
 const Home = () => {
   const { products } = useProducts();
 
-  // console.log(products);
-
   const [selectedCategory, setSelectedCategory] = useState<Category>(
     mockedCategories[0]
   );

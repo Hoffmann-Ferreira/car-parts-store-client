@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import Button from "../Button";
 import CheckoutCard from "../ChekoutCard";
 import * as Styled from "./styles";

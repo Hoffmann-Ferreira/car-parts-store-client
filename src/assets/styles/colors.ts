@@ -7,6 +7,7 @@ export const colors = {
   maincolor: "#8BC3E4",
   borderMenu: "2px #FFFFFF",
   cancelColor: "#e62019;",
+  inputBackground: "#9AB2D0",
 
   activeButtonColorOpacity: "rgb(2,62,138,0.4)",
 };

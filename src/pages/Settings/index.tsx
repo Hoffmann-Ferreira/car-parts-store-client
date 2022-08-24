@@ -2,10 +2,19 @@ import * as Styled from "./styles";
 import Menu from "../../components/Menu";
 import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import Button from "../../components/Button";
-import { mockedProducsts } from "../../mocks";
 import SettingsProductCard from "../../components/SettingsProductCard";
+import { useProducts } from "../../contexts/Products";
+import { useState } from "react";
+import ProductModal from "../../components/ProductModal";
 
 const Settings = () => {
+  const { products } = useProducts();
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
@@ -50,11 +59,11 @@ const Settings = () => {
           </Styled.EntitiesEditCategoryButton>
         </Styled.EntitiesEditCategorySelector>
         <Styled.EntitesEditList>
-          <Styled.AddEntitesEditCard>
+          <Styled.AddEntitesEditCard onClick={handleOpenModal}>
             <h2>+</h2>
             <p> Inten add</p>
           </Styled.AddEntitesEditCard>
-          {mockedProducsts.map((element) => (
+          {products.map((element) => (
             <SettingsProductCard product={element} key={element.id} />
           ))}
         </Styled.EntitesEditList>
@@ -63,6 +72,7 @@ const Settings = () => {
           <Button text="Save changes" size="large" />
         </Styled.ConfirmationContainer>
       </Styled.EntitiesEditContainer>
+      {openModal && <ProductModal handleOpenModal={handleOpenModal} />}
     </Styled.SettingsContainer>
   );
 };
