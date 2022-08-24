@@ -4,6 +4,11 @@ import * as Styled from "./styles";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import { mockedCategories } from "../../mocks/index";
+import { api } from "../../Services";
+import toast from "react-hot-toast";
+import { useProducts } from "../../contexts/Products";
 
 interface ProductModalProps {
   handleOpenModal: () => void;
@@ -14,6 +19,7 @@ interface NewProductData {
   description: string;
   image: string;
   price: number;
+  categoryId?: string;
 }
 
 const newProductSchema = yup.object().shape({
@@ -27,6 +33,10 @@ const newProductSchema = yup.object().shape({
 });
 
 const ProductModal = ({ handleOpenModal }: ProductModalProps) => {
+  const { handleGetProducts } = useProducts();
+
+  const [categoryId, setCategoryId] = useState<string>("");
+
   const {
     register,
     handleSubmit,
@@ -34,7 +44,40 @@ const ProductModal = ({ handleOpenModal }: ProductModalProps) => {
   } = useForm<NewProductData>({ resolver: yupResolver(newProductSchema) });
 
   const handleNewProduct = (data: NewProductData) => {
-    console.log(data);
+    data.categoryId = categoryId;
+
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    api
+      .post("/products", data, headers)
+      .then((res) => {
+        handleGetProducts();
+        handleOpenModal();
+
+        toast.success("product registered successfully!", {
+          icon: "🆗",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      })
+      .catch((error) =>
+        toast.error("Please select category", {
+          icon: "❌",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        })
+      );
   };
 
   return (
@@ -48,14 +91,26 @@ const ProductModal = ({ handleOpenModal }: ProductModalProps) => {
         />
         <StyledInput
           type="number"
+          step="0.01"
           placeholder="Product Price"
           {...register("price")}
         />
         <StyledInput placeholder="Product URL Image" {...register("image")} />
-        <StyledInput placeholder="Product Category" />
+        <Styled.Select
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
+        >
+          <option>Select Category</option>
+          {mockedCategories.map((element) => (
+            <option key={element.id} value={element.id}>
+              {" "}
+              {element.name}
+            </option>
+          ))}
+        </Styled.Select>
         {
           <ErrorMessage>
-            { errors.name?.message ||
+            {errors.name?.message ||
               errors.description?.message ||
               errors.price?.message ||
               errors.image?.message}

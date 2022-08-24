@@ -35,3 +35,16 @@ export const ModalContainer = styled.form`
     }
   `}
 `;
+
+export const Select= styled.select`
+  ${({ theme }) => css`
+    all: unset;
+    padding-left: 1rem;
+    border-radius: 8px;
+    width: 18.625rem;
+    height: 3rem;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+  `}
+`;
