@@ -9,16 +9,18 @@ import { mockedCategories } from "../../mocks/index";
 import { api } from "../../Services";
 import toast from "react-hot-toast";
 import { useProducts } from "../../contexts/Products";
+import { Product } from "../../types";
 
 interface ProductModalProps {
   handleOpenModal: () => void;
+  product?: Product;
 }
 
 interface NewProductData {
-  name: string;
-  description: string;
-  image: string;
-  price: number;
+  name?: string;
+  description?: string;
+  image?: string;
+  price?: number;
   categoryId?: string;
 }
 
@@ -32,27 +34,42 @@ const newProductSchema = yup.object().shape({
   image: yup.string().url().required("Mandatory filling of the image"),
 });
 
-const ProductModal = ({ handleOpenModal }: ProductModalProps) => {
+const updateProductSchema = yup.object().shape({
+  name: yup.string(),
+
+  description: yup.string(),
+
+  price: yup.number(),
+
+  image: yup.string().url("Mandatory filling of the image"),
+});
+
+const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
   const { handleGetProducts } = useProducts();
 
-  const [categoryId, setCategoryId] = useState<string>("");
+  const [categoryId, setCategoryId] = useState<string>(
+    product ? product.categoryId : ""
+  );
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<NewProductData>({ resolver: yupResolver(newProductSchema) });
+  } = useForm<NewProductData>({
+    resolver: yupResolver(product ? updateProductSchema : newProductSchema),
+  });
+
+  const token = localStorage.getItem("token");
+
+  const headers = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   const handleNewProduct = (data: NewProductData) => {
     data.categoryId = categoryId;
 
-    const token = localStorage.getItem("token");
-
-    const headers = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
     api
       .post("/products", data, headers)
       .then((res) => {
@@ -80,24 +97,58 @@ const ProductModal = ({ handleOpenModal }: ProductModalProps) => {
       );
   };
 
+  const handleUpdateProduct = (data: NewProductData) => {
+    data.categoryId = categoryId;
+
+    api.patch(`/products/${product?.id}`, data, headers).then(() => {
+      handleGetProducts();
+      handleOpenModal();
+
+      toast.success("Update product successfully!", {
+        icon: "🆗",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    });
+  };
+
   return (
     <Styled.ModalOverlay>
-      <Styled.ModalContainer onSubmit={handleSubmit(handleNewProduct)}>
-        <h2>Add Product</h2>
-        <StyledInput placeholder="Product Name" {...register("name")} />
+      <Styled.ModalContainer
+        onSubmit={
+          product
+            ? handleSubmit(handleUpdateProduct)
+            : handleSubmit(handleNewProduct)
+        }
+      >
+        <h2>{product ? "Edit the product" : "Add product"}</h2>
         <StyledInput
+          defaultValue={product ? product.name : ""}
+          placeholder="Product Name"
+          {...register("name")}
+        />
+        <StyledInput
+         defaultValue={product ? product.description : ""}
           placeholder="Product Description"
           {...register("description")}
         />
         <StyledInput
+         defaultValue={product ? product.price : ""}
           type="number"
           step="0.01"
           placeholder="Product Price"
           {...register("price")}
         />
-        <StyledInput placeholder="Product URL Image" {...register("image")} />
+        <StyledInput
+          defaultValue={product ? product.image : ""}
+          placeholder="Product URL Image"
+          {...register("image")}
+        />
         <Styled.Select
-          value={categoryId}
+          defaultValue={categoryId}
           onChange={(e) => setCategoryId(e.target.value)}
         >
           <option>Select Category</option>
