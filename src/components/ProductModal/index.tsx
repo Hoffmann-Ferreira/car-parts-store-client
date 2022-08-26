@@ -1,10 +1,14 @@
-import { ErrorMessage, StyledInput } from "../../assets/styles/globalStyles";
+import {
+  ErrorMessage,
+  ModalOverlay,
+  StyledInput,
+} from "../../assets/styles/globalStyles";
 import Button from "../Button";
 import * as Styled from "./styles";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { mockedCategories } from "../../mocks/index";
 import { api } from "../../Services";
 import toast from "react-hot-toast";
@@ -14,6 +18,7 @@ import { Product } from "../../types";
 interface ProductModalProps {
   handleOpenModal: () => void;
   product?: Product;
+  setProduct: Dispatch<SetStateAction<Product | undefined>>;
 }
 
 interface NewProductData {
@@ -44,12 +49,18 @@ const updateProductSchema = yup.object().shape({
   image: yup.string().url("Mandatory filling of the image"),
 });
 
-const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
+const ProductModal = ({
+  handleOpenModal,
+  product,
+  setProduct,
+}: ProductModalProps) => {
   const { handleGetProducts } = useProducts();
 
   const [categoryId, setCategoryId] = useState<string>(
     product ? product.categoryId : ""
   );
+  //
+  const [buttonType, setButtonType] = useState<string>("");
 
   const {
     register,
@@ -69,12 +80,14 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
 
   const handleNewProduct = (data: NewProductData) => {
     data.categoryId = categoryId;
-
+    console.log(buttonType)
+if(buttonType !== "cancel"){
     api
       .post("/products", data, headers)
       .then((res) => {
         handleGetProducts();
         handleOpenModal();
+        setProduct(undefined);
 
         toast.success("product registered successfully!", {
           icon: "🆗",
@@ -86,15 +99,18 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
         });
       })
       .catch((error) =>
-        toast.error("Please select category", {
-          icon: "❌",
-          style: {
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
-          },
-        })
-      );
+      toast.error("Please select category", {
+        icon: "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      })
+      );} else {
+        handleOpenModal();
+        setButtonType("");
+      }
   };
 
   const handleUpdateProduct = (data: NewProductData) => {
@@ -103,6 +119,7 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
     api.patch(`/products/${product?.id}`, data, headers).then(() => {
       handleGetProducts();
       handleOpenModal();
+      setProduct(undefined);
 
       toast.success("Update product successfully!", {
         icon: "🆗",
@@ -116,7 +133,7 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
   };
 
   return (
-    <Styled.ModalOverlay>
+    <ModalOverlay>
       <Styled.ModalContainer
         onSubmit={
           product
@@ -131,12 +148,12 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
           {...register("name")}
         />
         <StyledInput
-         defaultValue={product ? product.description : ""}
+          defaultValue={product ? product.description : ""}
           placeholder="Product Description"
           {...register("description")}
         />
         <StyledInput
-         defaultValue={product ? product.price : ""}
+          defaultValue={product ? product.price : ""}
           type="number"
           step="0.01"
           placeholder="Product Price"
@@ -169,7 +186,11 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
         }
         <div>
           <Button
-            onClick={handleOpenModal}
+            onClick={() => {
+              setButtonType("cancel");
+              setProduct(undefined);
+              handleOpenModal();
+            }}
             text="Cancel"
             size="small"
             variant="cancel"
@@ -177,7 +198,7 @@ const ProductModal = ({ handleOpenModal, product }: ProductModalProps) => {
           <Button text="Submit" size="small" type="submit" />
         </div>
       </Styled.ModalContainer>
-    </Styled.ModalOverlay>
+    </ModalOverlay>
   );
 };
 

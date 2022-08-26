@@ -1,21 +1,7 @@
 import styled, { css } from "styled-components";
 
-export const ModalOverlay = styled.div`
-  ${({ theme }) => css`
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: 1;
-    background-color: #0000008f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `}
-`;
-
 export const ModalContainer = styled.form`
   ${({ theme }) => css`
-
     width: 22.5rem;
     border-radius: 8px;
     background-color: ${theme.colors.inputBackground};
@@ -36,7 +22,7 @@ export const ModalContainer = styled.form`
   `}
 `;
 
-export const Select= styled.select`
+export const Select = styled.select`
   ${({ theme }) => css`
     all: unset;
     padding-left: 1rem;
