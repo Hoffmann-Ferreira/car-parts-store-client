@@ -1,5 +1,5 @@
 import { ChangeEventHandler, InputHTMLAttributes } from "react";
-import { StyledInput } from "./styles";
+import { StyledInput } from "../../assets/styles/globalStyles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: "small" | "large";
