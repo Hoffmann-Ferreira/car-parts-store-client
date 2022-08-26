@@ -2,10 +2,30 @@ import * as Styled from "./styles";
 import Menu from "../../components/Menu";
 import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import Button from "../../components/Button";
-import { mockedProducsts } from "../../mocks";
 import SettingsProductCard from "../../components/SettingsProductCard";
+import { useProducts } from "../../contexts/Products";
+import { useState } from "react";
+import ProductModal from "../../components/ProductModal";
+import { Product } from "../../types";
+import DeleteProductModal from "../../components/DelectProductModal";
 
 const Settings = () => {
+  const { products } = useProducts();
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
+
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
+
+  const handleOpenDeleteModal = () => {
+    setOpenDeleteModal(!openDeleteModal);
+  };
+
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
@@ -50,12 +70,18 @@ const Settings = () => {
           </Styled.EntitiesEditCategoryButton>
         </Styled.EntitiesEditCategorySelector>
         <Styled.EntitesEditList>
-          <Styled.AddEntitesEditCard>
+          <Styled.AddEntitesEditCard onClick={handleOpenModal}>
             <h2>+</h2>
             <p> Inten add</p>
           </Styled.AddEntitesEditCard>
-          {mockedProducsts.map((element) => (
-            <SettingsProductCard product={element} key={element.id} />
+          {products.map((element) => (
+            <SettingsProductCard
+              handleOpenModal={handleOpenModal}
+              handleOpenDeleteModal={handleOpenDeleteModal}
+              setProduct={setProduct}
+              product={element}
+              key={element.id}
+            />
           ))}
         </Styled.EntitesEditList>
         <Styled.ConfirmationContainer>
@@ -63,6 +89,20 @@ const Settings = () => {
           <Button text="Save changes" size="large" />
         </Styled.ConfirmationContainer>
       </Styled.EntitiesEditContainer>
+      {openModal && (
+        <ProductModal
+          setProduct={setProduct}
+          product={product}
+          handleOpenModal={handleOpenModal}
+        />
+      )}
+      {openDeleteModal && (
+        <DeleteProductModal
+          setProduct={setProduct}
+          productId={product?.id}
+          handleOpenDeleteModal={handleOpenDeleteModal}
+        />
+      )}
     </Styled.SettingsContainer>
   );
 };

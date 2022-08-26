@@ -50,11 +50,3 @@ export const LoginLogoContainer = styled.div`
     }
   `}
 `;
-
-export const ErrorMessage = styled.p`
-  ${({ theme }) => css`
-    color: #e63946;
-    align-self: center;
-    text-align: center;
-  `}
-`;

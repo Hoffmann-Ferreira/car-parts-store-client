@@ -24,3 +24,24 @@ export const StyledInput = styled.input<styledInputProps>`
     `}
   `}
 `;
+
+export const ErrorMessage = styled.p`
+  ${({ theme }) => css`
+    color: #e63946;
+    align-self: center;
+    text-align: center;
+  `}
+`;
+
+export const ModalOverlay = styled.div`
+  ${({ theme }) => css`
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    background-color: #0000008f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `}
+`;

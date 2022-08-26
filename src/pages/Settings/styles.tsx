@@ -111,7 +111,6 @@ export const EntitiesEditCategorySelector = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 1rem;
- 
   `}
 `;
 
@@ -157,6 +156,11 @@ export const AddEntitesEditCard = styled.div`
  flex-direction: column;
  justify-content: center;
  align-items: center;
+
+ :hover{
+  cursor: pointer;
+  transform: scale(1.1);
+ }
 
   `}
 `;
