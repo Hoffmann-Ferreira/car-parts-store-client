@@ -3,8 +3,7 @@ import Menu from "../../components/Menu";
 import ProductList from "../../components/productslist";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
-import { mockedCategories } from "../../mocks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Category, Product } from "../../types";
 import OrderDetails from "../../components/OrderDetails";
 import { useProducts } from "../../contexts/Products";
@@ -15,7 +14,7 @@ const Home = () => {
   const { products } = useProducts();
 
   const [selectedCategory, setSelectedCategory] = useState<Category>(
-    categories[0] || ({} as Category)
+    categories[0] || ({id: '7fb9562e-df63-46f8-a62b-02edd985fe6d', name: 'Engine'} as Category)
   );
 
   const filteredProducts: Product[] = products.filter(

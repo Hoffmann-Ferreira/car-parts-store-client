@@ -37,7 +37,6 @@ export const CategoriesProvider = ({ children }: CategoriesProviderProps) => {
     };
 
     api.get("/category", headers).then((res) => {
-      console.log(res);
       setCategories(res.data);
     });
   };

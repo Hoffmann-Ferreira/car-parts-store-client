@@ -6,11 +6,25 @@ import SettingsProductCard from "../../components/SettingsProductCard";
 import { useProducts } from "../../contexts/Products";
 import { useState } from "react";
 import ProductModal from "../../components/ProductModal";
-import { Product } from "../../types";
+import { Category, Product } from "../../types";
 import DeleteProductModal from "../../components/DelectProductModal";
+import { useCategories } from "../../contexts/categories";
 
 const Settings = () => {
   const { products } = useProducts();
+  const { categories } = useCategories();
+
+  const [selectedCategory, setSelectedCategory] = useState<Category>(
+    categories[0] ||
+      ({
+        id: "7fb9562e-df63-46f8-a62b-02edd985fe6d",
+        name: "Engine",
+      } as Category)
+  );
+
+  const filteredProducts: Product[] = products.filter(
+    (element) => selectedCategory && element.categoryId === selectedCategory.id
+  );
 
   const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -59,22 +73,23 @@ const Settings = () => {
       <Styled.EntitiesEditContainer>
         <h2>Manage products</h2>
         <Styled.EntitiesEditCategorySelector>
-          <Styled.EntitiesEditCategoryButton active>
-            Engine
-          </Styled.EntitiesEditCategoryButton>
-          <Styled.EntitiesEditCategoryButton>
-            Suspension
-          </Styled.EntitiesEditCategoryButton>
-          <Styled.EntitiesEditCategoryButton>
-            Break
-          </Styled.EntitiesEditCategoryButton>
+          {categories.map((element) => {
+            return (
+              <Styled.EntitiesEditCategoryButton
+                active={element.name === selectedCategory.name}
+                onClick={() => setSelectedCategory(element)}
+              >
+                {element.name}
+              </Styled.EntitiesEditCategoryButton>
+            );
+          })}
         </Styled.EntitiesEditCategorySelector>
         <Styled.EntitesEditList>
           <Styled.AddEntitesEditCard onClick={handleOpenModal}>
             <h2>+</h2>
             <p> Inten add</p>
           </Styled.AddEntitesEditCard>
-          {products.map((element) => (
+          {filteredProducts.map((element) => (
             <SettingsProductCard
               handleOpenModal={handleOpenModal}
               handleOpenDeleteModal={handleOpenDeleteModal}
