@@ -1,6 +1,5 @@
 import * as Styled from "./styles";
 import Menu from "../../components/Menu";
-import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import Button from "../../components/Button";
 import SettingsProductCard from "../../components/SettingsProductCard";
 import { useProducts } from "../../contexts/Products";
@@ -9,8 +8,9 @@ import ProductModal from "../../components/ProductModal";
 import { Category, Product } from "../../types";
 import DeleteProductModal from "../../components/DelectProductModal";
 import { useCategories } from "../../contexts/categories";
+import SettingsMenu from "../../components/SettingsMenu";
 
-const Settings = () => {
+const SettingsProducts = () => {
   const { products } = useProducts();
   const { categories } = useCategories();
 
@@ -43,33 +43,7 @@ const Settings = () => {
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
-      <Styled.SettingsNavegationContainer>
-        <h2> Settings</h2>
-        <Styled.SettingsNavegationButtonList>
-          <Styled.SettingsNavegationButtonContainer>
-            <Styled.SettingsNavegationButtonSelected>
-              <InfoIcon />
-              <h4>Manage users</h4>
-              <p>add remove and edit</p>
-            </Styled.SettingsNavegationButtonSelected>
-          </Styled.SettingsNavegationButtonContainer>
-          <Styled.SettingsNavegationButtonContainer active>
-            <Styled.SettingsNavegationButtonSelected active>
-              <MarketIcon />
-              <h4>Manage products </h4>
-              <p>add remove and edit</p>
-            </Styled.SettingsNavegationButtonSelected>
-          </Styled.SettingsNavegationButtonContainer>
-          <Styled.SettingsNavegationButtonContainer>
-            <Styled.SettingsNavegationButtonSelected>
-              <PromotionIcon />
-              <h4>Manage categories</h4>
-              <p>add remove and edit</p>
-            </Styled.SettingsNavegationButtonSelected>
-          </Styled.SettingsNavegationButtonContainer>
-        </Styled.SettingsNavegationButtonList>
-      </Styled.SettingsNavegationContainer>
-
+      <SettingsMenu path="products" />
       <Styled.EntitiesEditContainer>
         <h2>Manage products</h2>
         <Styled.EntitiesEditCategorySelector>
@@ -122,4 +96,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default SettingsProducts;

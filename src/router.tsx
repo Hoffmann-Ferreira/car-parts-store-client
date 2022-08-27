@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { userAuth } from "./contexts/auth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Settings from "./pages/Settings";
+import SettingsProducts from "./pages/SettingsProducts";
 
 const Router = () => {
   const { logged } = userAuth();
@@ -12,7 +12,8 @@ const Router = () => {
       {logged ? (
         <>
           <Route path="/" element={<Home />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings/products" element={<SettingsProducts />} />
+          <Route path="/settings/categories" element={<SettingsProducts />} />
         </>
       ) : (
         <Route path="/login" element={<Login />} />
