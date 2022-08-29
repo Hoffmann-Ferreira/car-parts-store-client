@@ -45,7 +45,7 @@ const SettingsProducts = () => {
       <Menu path="settings" />
       <SettingsMenu path="products" />
       <Styled.EntitiesEditContainer>
-        <h2>Manage products</h2>
+        <h2>Manage Products</h2>
         <Styled.EntitiesEditCategorySelector>
           {categories.map((element) => {
             return (

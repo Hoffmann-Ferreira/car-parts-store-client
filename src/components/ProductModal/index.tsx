@@ -80,37 +80,38 @@ const ProductModal = ({
 
   const handleNewProduct = (data: NewProductData) => {
     data.categoryId = categoryId;
-    console.log(buttonType)
-if(buttonType !== "cancel"){
-    api
-      .post("/products", data, headers)
-      .then((res) => {
-        handleGetProducts();
-        handleOpenModal();
-        setProduct(undefined);
+    console.log(buttonType);
+    if (buttonType !== "cancel") {
+      api
+        .post("/products", data, headers)
+        .then((res) => {
+          handleGetProducts();
+          handleOpenModal();
+          setProduct(undefined);
 
-        toast.success("product registered successfully!", {
-          icon: "🆗",
-          style: {
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
-          },
-        });
-      })
-      .catch((error) =>
-      toast.error("Please select category", {
-        icon: "❌",
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      })
-      );} else {
-        handleOpenModal();
-        setButtonType("");
-      }
+          toast.success("product registered successfully!", {
+            icon: "🆗",
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+            },
+          });
+        })
+        .catch((error) =>
+          toast.error("Please select category", {
+            icon: "❌",
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+            },
+          })
+        );
+    } else {
+      handleOpenModal();
+      setButtonType("");
+    }
   };
 
   const handleUpdateProduct = (data: NewProductData) => {
@@ -176,14 +177,12 @@ if(buttonType !== "cancel"){
             </option>
           ))}
         </Styled.Select>
-        {
-          <ErrorMessage>
-            {errors.name?.message ||
-              errors.description?.message ||
-              errors.price?.message ||
-              errors.image?.message}
-          </ErrorMessage>
-        }
+        <ErrorMessage>
+          {errors.name?.message ||
+            errors.description?.message ||
+            errors.price?.message ||
+            errors.image?.message}
+        </ErrorMessage>
         <div>
           <Button
             onClick={() => {
