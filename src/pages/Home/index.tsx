@@ -3,21 +3,22 @@ import Menu from "../../components/Menu";
 import ProductList from "../../components/productslist";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
-import { mockedCategories } from "../../mocks";
 import { useState } from "react";
 import { Category, Product } from "../../types";
 import OrderDetails from "../../components/OrderDetails";
 import { useProducts } from "../../contexts/Products";
+import { useCategories } from "../../contexts/categories";
 
 const Home = () => {
+  const { categories } = useCategories();
   const { products } = useProducts();
 
   const [selectedCategory, setSelectedCategory] = useState<Category>(
-    mockedCategories[0]
+    categories[0] || ({id: '7fb9562e-df63-46f8-a62b-02edd985fe6d', name: 'Engine'} as Category)
   );
 
   const filteredProducts: Product[] = products.filter(
-    (element) => element.categoryId === selectedCategory.id
+    (element) => selectedCategory && element.categoryId === selectedCategory.id
   );
 
   const actualDate = DateTime.now();
@@ -39,17 +40,18 @@ const Home = () => {
         </Styled.HomeContentHeader>
         <section>
           <Styled.CategoriesNavegationBar>
-            {mockedCategories.map((element) => {
-              return (
-                <Styled.CategoriesNavegation
-                  key={element.id}
-                  active={element.name === selectedCategory.name}
-                  onClick={() => setSelectedCategory(element)}
-                >
-                  {element.name}
-                </Styled.CategoriesNavegation>
-              );
-            })}
+            {categories.length > 0 &&
+              categories.map((element) => {
+                return (
+                  <Styled.CategoriesNavegation
+                    key={element.id}
+                    active={element.name === selectedCategory.name}
+                    onClick={() => setSelectedCategory(element)}
+                  >
+                    {element.name}
+                  </Styled.CategoriesNavegation>
+                );
+              })}
           </Styled.CategoriesNavegationBar>
           <Styled.HomeContentHeader>
             <h2>Click on the product to add it to the order</h2>
