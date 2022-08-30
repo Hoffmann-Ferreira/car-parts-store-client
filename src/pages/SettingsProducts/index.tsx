@@ -52,7 +52,7 @@ const SettingsProducts = () => {
               <Styled.EntitiesEditCategoryButton
                 active={element.name === selectedCategory.name}
                 onClick={() => setSelectedCategory(element)}
-              >
+                key={element.id}>
                 {element.name}
               </Styled.EntitiesEditCategoryButton>
             );
@@ -73,10 +73,6 @@ const SettingsProducts = () => {
             />
           ))}
         </Styled.EntitesEditList>
-        <Styled.ConfirmationContainer>
-          <Button text="Cancel" variant="cancel" size="large" />
-          <Button text="Save changes" size="large" />
-        </Styled.ConfirmationContainer>
       </Styled.EntitiesEditContainer>
       {openModal && (
         <ProductModal

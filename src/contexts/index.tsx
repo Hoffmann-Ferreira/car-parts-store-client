@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Children, ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "../assets/styles/theme";
@@ -15,13 +15,13 @@ const Providers = ({ children }: ProvidersProps) => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <UserProvider>
-          <AuthProvider>
-            <CategoriesProvider>
-              <ProductsProvider>{children}</ProductsProvider>
-            </CategoriesProvider>
-          </AuthProvider>
-        </UserProvider>
+        <AuthProvider>
+          <CategoriesProvider>
+            <ProductsProvider>
+              <UserProvider>{children}</UserProvider>
+            </ProductsProvider>
+          </CategoriesProvider>
+        </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   );
