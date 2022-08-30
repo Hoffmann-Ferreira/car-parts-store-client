@@ -6,7 +6,7 @@ import { useProducts } from "../../contexts/Products";
 import { useState } from "react";
 import ProductModal from "../../components/ProductModal";
 import { Category, Product } from "../../types";
-import DeleteProductModal from "../../components/DelectProductModal";
+import DeleteProductModal from "../../components/DeleteProductModal";
 import { useCategories } from "../../contexts/categories";
 import SettingsMenu from "../../components/SettingsMenu";
 
