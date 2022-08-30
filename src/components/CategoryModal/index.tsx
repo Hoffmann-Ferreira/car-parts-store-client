@@ -10,7 +10,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../Services";
 import toast from "react-hot-toast";
-import { useCategories } from "../../contexts/categories";
+import { useCategories } from "../../contexts/Categories";
 import { Category } from "../../types";
 import { Dispatch, SetStateAction } from "react";
 

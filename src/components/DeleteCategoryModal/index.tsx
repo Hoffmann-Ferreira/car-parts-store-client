@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
 import { ModalOverlay } from "../../assets/styles/globalStyles";
-import { useCategories } from "../../contexts/categories";
+import { useCategories } from "../../contexts/Categories";
 import { api } from "../../Services";
 import { Category } from "../../types";
 import Button from "../Button";
