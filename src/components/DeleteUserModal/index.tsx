@@ -1,28 +1,28 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
 import { ModalOverlay } from "../../assets/styles/globalStyles";
-import { useCategories } from "../../contexts/Categories";
+import { useUsers } from "../../contexts/Users";
 import { api } from "../../Services";
-import { Category } from "../../types";
+import { User } from "../../types";
 import Button from "../Button";
 import { DeleteModalContainer } from "./styles";
 
-interface DeleteCategoryModalProps {
-  categoryId?: string;
+interface DeleteUserModalProps {
+  userId?: string;
   handleOpenDeleteModal: () => void;
-  setCategory: Dispatch<SetStateAction<Category | undefined>>;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
 }
 
-const DeleteCategorytModal = ({
-  categoryId,
+const DeleteUserModal = ({
+  userId,
   handleOpenDeleteModal,
-  setCategory,
-}: DeleteCategoryModalProps) => {
-  const { handleGetCategories } = useCategories();
+  setUser,
+}: DeleteUserModalProps) => {
+  const { handleGetUsers } = useUsers();
 
   const [buttonType, setButtonType] = useState<string>("");
 
-  const handleDeleteCategory = () => {
+  const handleDeleteUser = () => {
     const token = localStorage.getItem("token");
 
     const headers = {
@@ -32,8 +32,8 @@ const DeleteCategorytModal = ({
     };
 
     if (buttonType !== "cancel") {
-      api.delete(`/category/${categoryId}`, headers).then(() => {
-        toast.success("CategoryId deleted successfully", {
+      api.delete(`/users/${userId}`, headers).then(() => {
+        toast.success("User deleted successfully", {
           icon: "✅",
           style: {
             borderRadius: "10px",
@@ -41,8 +41,8 @@ const DeleteCategorytModal = ({
             color: "#fff",
           },
         });
-        handleGetCategories();
-        setCategory(undefined);
+        handleGetUsers();
+        setUser(undefined);
         handleOpenDeleteModal();
       });
     } else {
@@ -54,23 +54,23 @@ const DeleteCategorytModal = ({
   return (
     <ModalOverlay>
       <DeleteModalContainer>
-        <h2> Delete Category?</h2>
+        <h2> Delete User?</h2>
         <div>
           <Button
             onClick={() => {
               setButtonType("cancel");
-              setCategory(undefined);
+              setUser(undefined);
               handleOpenDeleteModal();
             }}
             text="Cancel"
             variant="cancel"
             size="small"
           />
-          <Button text="Delete" size="small" onClick={handleDeleteCategory} />
+          <Button text="Delete" size="small" onClick={handleDeleteUser} />
         </div>
       </DeleteModalContainer>
     </ModalOverlay>
   );
 };
 
-export default DeleteCategorytModal;
+export default DeleteUserModal;

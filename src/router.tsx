@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SettingsCategories from "./pages/SettingsCategories";
 import SettingsProducts from "./pages/SettingsProducts";
+import SettingsUsers from "./pages/SettingsUsers";
 
 const Router = () => {
   const { logged } = userAuth();
@@ -15,7 +16,7 @@ const Router = () => {
           <Route path="/" element={<Home />} />
           <Route path="/settings/products" element={<SettingsProducts />} />
           <Route path="/settings/categories" element={<SettingsCategories />} />
-          <Route path="/settings/users" element={<SettingsProducts />} />
+          <Route path="/settings/users" element={<SettingsUsers />} />
         </>
       ) : (
         <Route path="/login" element={<Login />} />

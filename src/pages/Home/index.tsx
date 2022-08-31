@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Category, Product } from "../../types";
 import OrderDetails from "../../components/OrderDetails";
 import { useProducts } from "../../contexts/Products";
-import { useCategories } from "../../contexts/categories";
+import { useCategories } from "../../contexts/Categories";
 
 const Home = () => {
   const { categories } = useCategories();

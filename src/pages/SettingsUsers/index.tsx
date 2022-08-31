@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { EditIcon, TrashIcon } from "../../assets/icons";
-import CategoryModal from "../../components/CategoryModal";
-import DeleteCategorytModal from "../../components/DeleteCategoryModal";
+import UserModal from "../../components/UserModal";
+import DeleteUsertModal from "../../components/DeleteUserModal";
 import Menu from "../../components/Menu";
 import SettingsMenu from "../../components/SettingsMenu";
-import { useCategories } from "../../contexts/Categories";
-import { Category } from "../../types";
+import { useUsers } from "../../contexts/Users";
+import { User } from "../../types";
 import * as Styled from "./styles";
 
-const SettingsCategories = () => {
-  const { categories } = useCategories();
+const SettingsUsers = () => {
+  const { users } = useUsers();
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
 
-  const [category, setCategory] = useState<Category | undefined>(undefined);
+  const [user, setUser] = useState<User | undefined>(undefined);
 
   const handleOpenModal = () => {
     setOpenModal(!openModal);
   };
 
-  const handleOpenUpdateModal = (category: Category) => {
-    setCategory(category);
+  const handleOpenUpdateModal = (user: User) => {
+    setUser(user);
     setOpenModal(!openModal);
   };
 
@@ -32,32 +32,32 @@ const SettingsCategories = () => {
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
-      <SettingsMenu path="categories" />
+      <SettingsMenu path="users" />
       <Styled.EntitiesEditContainer>
-        <h2>Manage Categories</h2>
+        <h2>Manage Users</h2>
         <Styled.EntitesEditList>
           <Styled.AddEntitesEditCard onClick={handleOpenModal}>
             <h2>+</h2>
-            <p> Category add</p>
+            <p> User add</p>
           </Styled.AddEntitesEditCard>
-          {categories.map((element) => {
+          {users.map((element) => {
             return (
               <Styled.EntitesCard key={element.id}>
                 {element.name}
                 <div>
-                  <Styled.SettingsCategoryEditButton
+                  <Styled.SettingsUserEditButton
                     onClick={() => handleOpenUpdateModal(element)}
                   >
                     <EditIcon /> To edit
-                  </Styled.SettingsCategoryEditButton>
-                  <Styled.SettingsCategorytDeleteButton
+                  </Styled.SettingsUserEditButton>
+                  <Styled.SettingsUsertDeleteButton
                     onClick={() => {
-                      setCategory(element);
+                      setUser(element);
                       handleOpenDeleteModal();
                     }}
                   >
                     <TrashIcon /> Delete
-                  </Styled.SettingsCategorytDeleteButton>
+                  </Styled.SettingsUsertDeleteButton>
                 </div>
               </Styled.EntitesCard>
             );
@@ -65,21 +65,21 @@ const SettingsCategories = () => {
         </Styled.EntitesEditList>
       </Styled.EntitiesEditContainer>
       {openModal && (
-        <CategoryModal
-          setCategory={setCategory}
-          category={category}
+        <UserModal
+          setUser={setUser}
+          user={user}
           handleOpenModal={handleOpenModal}
         />
       )}
       {openDeleteModal && (
-        <DeleteCategorytModal
-          categoryId={category?.id}
+        <DeleteUsertModal
+          userId={user?.id}
           handleOpenDeleteModal={handleOpenDeleteModal}
-          setCategory={setCategory}
+          setUser={setUser}
         />
       )}
     </Styled.SettingsContainer>
   );
 };
 
-export default SettingsCategories;
+export default SettingsUsers;
