@@ -53,7 +53,7 @@ You can also analyze our api which is located in <a href="https://github.com/Hof
 ## Author
 
 - Andrei Hoffmann Ferreira
-- In participation of the C13 Dio Class
+- In participation of the C013 Dio Class
 - Ivan Borba
 
 ## Contribution
