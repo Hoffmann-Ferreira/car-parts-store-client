@@ -20,7 +20,7 @@ const SettingsUsers = () => {
     setOpenModal(!openModal);
   };
 
-  const handleOpenUpdateModal = (user: User ) => {
+  const handleOpenUpdateModal = (user: User) => {
     setUser(user);
     setOpenModal(!openModal);
   };
@@ -65,7 +65,7 @@ const SettingsUsers = () => {
         </Styled.EntitesEditList>
       </Styled.EntitiesEditContainer>
       {openModal && (
-        <UserModal 
+        <UserModal
           setUser={setUser}
           user={user}
           handleOpenModal={handleOpenModal}

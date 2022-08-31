@@ -133,7 +133,7 @@ const UserModal = ({ handleOpenModal, user, setUser }: UserModalProps) => {
           {...register("email")}
           defaultValue={user ? user.email : ""}
         />
-        <StyledInput  
+        <StyledInput
           type="password"
           placeholder="User password"
           {...register("password")}
