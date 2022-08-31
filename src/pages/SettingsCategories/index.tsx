@@ -4,7 +4,7 @@ import CategoryModal from "../../components/CategoryModal";
 import DeleteCategorytModal from "../../components/DeleteCategoryModal";
 import Menu from "../../components/Menu";
 import SettingsMenu from "../../components/SettingsMenu";
-import { useCategories } from "../../contexts/Categories";
+import { useCategories } from "../../contexts/categories";
 import { Category } from "../../types";
 import * as Styled from "./styles";
 
