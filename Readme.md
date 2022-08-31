@@ -58,7 +58,7 @@ You can also analyze our api which is located in <a href="https://github.com/Hof
 
 ## Contribution
 
-Feel free to contact me if you have any suggestions for improvement on the project.
+Feel free to contact me if you have any suggestions for improvement on the project or send me the changes if you do.
 
 <div>
 <a href="https://www.linkedin.com/in/devhoffmannferreira/" target="blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>

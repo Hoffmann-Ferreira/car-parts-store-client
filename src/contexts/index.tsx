@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "../assets/styles/theme";
 import { AuthProvider } from "./auth";
-import { CategoriesProvider } from "./Categories";
+import { CategoriesProvider } from "./categories";
 import { ProductsProvider } from "./Products";
 import { UserProvider } from "./Users";
 
