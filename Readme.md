@@ -11,7 +11,6 @@
 ## Project page
 
 ```bash
-#!/bin/bash
   https://car-parts-store-client.vercel.app/login
 ```
 
@@ -19,21 +18,18 @@
 Clone this project on your computer with the command :
 
 ```bash
-#!/bin/bash
 $ git clone https://github.com/Hoffmann-Ferreira/car-parts-store-client.git
 ```
 
 Access the project folder:
 
 ```bash
-#!/bin/bash
 $ cd (folder name)
 ```
 
 Install the dependencies with the following command:
 
 ```bash
-#!/bin/bash
 $ yarn
 ```
 
@@ -42,7 +38,6 @@ $ yarn
 After installing the dependencies, use the following command to run the project on a local server:
 
 ```bash
-#!/bin/bash
 $ yarn dev
 ```
 To integrate the api use the api that is in: 
